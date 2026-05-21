@@ -33,6 +33,7 @@ export function AuthProvider({ children }) {
       const result = await authApi.signInWithGoogle();
       setUser(result.data);
       setStatus('authenticated');
+      return result;
     } catch (err) {
       setStatus('unauthenticated');
       setError(err.message);
